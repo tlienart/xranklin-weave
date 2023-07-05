@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  {{if weavecss}}
+    <link rel="stylesheet" href="/css/weave.css">
+    <style>
+      body {
+            max-width: 968px;
+            margin: auto;
+            padding: 3em;
+      }
+    </style>
+  {{else}}
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
+  {{end}}
+  {{if hasmath}}
+    <link rel="stylesheet" href="/libs/katex/katex.min.css">
+  {{end}}
+  {{if mathjax}}
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  {{end}}
+  {{if hascode}}
+    <link rel="stylesheet" href="/libs/highlight/styles/github.min.css">
+  {{end}}
+
+</head>
+<body>
+    {{page_content}}
+</body>
+
+{{if hasmath}}
+  <script src="/libs/katex/katex.min.js"></script>
+  <script src="/libs/katex/contrib/auto-render.min.js"></script>
+  <script>renderMathInElement(document.body)</script>
+{{end}}
+{{if hascode}}
+  <script src="/libs/highlight/highlight.min.js"></script>
+  <script>hljs.highlightAll();hljs.configure({tabReplace: '    '});</script>
+{{end}}
+</html>
