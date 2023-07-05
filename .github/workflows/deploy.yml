@@ -31,6 +31,12 @@ jobs:
           fi
         shell: bash
 
+      - name: Gnuplot
+        shell: bash
+        run: |
+            sudo apt-get update -qq
+            sudo apt-get install -y gnuplot
+
       - name: BUILD AND DEPLOY
         uses: tlienart/xranklin-build-action@main
         with:
